@@ -67,7 +67,7 @@
         <div align="center">
             <a href="https://ton.org/"><img width="48" src="./assets/tapps.png" alt="logo of telegram web apps"></a>
         </div>
-        <h1>Modals---------b</h1>
+        <h1>Modals---------bBB</h1>
         <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button>
         <button onclick="showPopup();">Launch Popup</button>
         <h1>Links</h1>
@@ -94,9 +94,9 @@
     <script>
         // Init TWA
         Telegram.WebApp.ready();
-        // Telegram.WebApp.open((e)=>{
-        //     console.log('e--------------',e)
-        // });
+        Telegram.WebApp.write_access_requested((e)=>{
+            console.log('e--------------',e)
+        });
         // Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
