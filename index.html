@@ -106,11 +106,11 @@
             text: 'Close bot'
         });
         Telegram.WebApp.MainButton.onClick(function () {
-            Telegram.WebApp.showAlert('Close bot was clicked')
-        });	
+            // Telegram.WebApp.showAlert('Close bot was clicked')
+            Telegram.WebApp.popupClosed()
+        });
         console.log("---------------")
         Telegram.WebApp.MainButton.show();
-
         // Function to call showPopup API
         function showPopup() {
             Telegram.WebApp.showPopup({
