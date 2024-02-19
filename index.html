@@ -67,7 +67,7 @@
         <div align="center">
             <a href="https://ton.org/"><img width="48" src="./assets/tapps.png" alt="logo of telegram web apps"></a>
         </div>
-        <h1>Modals---------bBB</h1>
+        <h1>Modals---------aaa</h1>
         <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button>
         <button onclick="showPopup();">Launch Popup</button>
         <h1>Links</h1>
@@ -94,6 +94,9 @@
     <script>
         // Init TWA
         Telegram.WebApp.ready();
+        Telegram.WebApp.onEvent('initData', function(e) {
+            console.log('e1------------',e)
+        });
         // Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
@@ -102,7 +105,6 @@
         Telegram.WebApp.MainButton.setParams({
             text: 'Close bot'
         });
-        console.log(11111111111111111111)
         Telegram.WebApp.MainButton.onClick(function () {
             // Telegram.WebApp.showAlert('Close bot was clicked')
             Telegram.WebApp.close()
@@ -122,17 +124,10 @@
                     Telegram.WebApp.openLink('https://ton.org/');
                 }
             });
-            Telegram.WebApp.write_access_requested((e)=>{
-                console.log('e1--------------',e)
-            });
-            Telegram.WebApp.request_write_access((e)=>{
-                console.log('e2--------------',e)
-            });
-            Telegram.WebApp.requestWriteAccess((e)=>{
-                console.log('e3--------------',e)
+            Telegram.WebApp.onEvent('initData', function(e) {
+                console.log('e2------------',e)
             });
         };
-
         // Function to toggle main TWA button
         function toggleMainButton() {
             if (Telegram.WebApp.MainButton.isVisible) {
