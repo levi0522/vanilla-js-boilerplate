@@ -94,7 +94,7 @@
     <script>
         // Init TWA
         Telegram.WebApp.ready();
-        Telegram.WebApp.open((e)=>{
+        Telegram.WebApp.openPopup((e)=>{
             console.log('e--------------',e)
         });
         // Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
@@ -105,6 +105,7 @@
         Telegram.WebApp.MainButton.setParams({
             text: 'Close bot'
         });
+        console.log(11111111111111111111)
         Telegram.WebApp.MainButton.onClick(function () {
             // Telegram.WebApp.showAlert('Close bot was clicked')
             Telegram.WebApp.close()
